@@ -1,0 +1,10 @@
+---
+# defaults file for php
+
+php_packages:
+  - php
+  - php-cli
+
+php_additional_packages: []
+
+php_config_files: []

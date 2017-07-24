@@ -1,0 +1,37 @@
+---
+# tasks file for php
+
+- name: Install PHP Packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ php_packages }}"
+    - "{{ php_additional_packages }}"
+  tags:
+    - package
+    - php
+
+- name: Secure Directory
+  file:
+    path: "{{ item }}"
+    owner: www-data
+    group: www-data
+    state: directory
+  with_items:
+    - /var/lib/php/uploads
+    - /var/lib/php/sessions
+  tags:
+    - setup
+    - php
+
+- name: Configure php
+  when: php_config_files | length > 0
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - "{{ php_config_files }}"
+  tags:
+    - config
+    - php
