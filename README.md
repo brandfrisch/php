@@ -1,4 +1,4 @@
-php [![Build Status](https://travis-ci.org/brandfrisch/php.svg?branch=master)](https://travis-ci.org/brandfrisch/php)
+php
 =========
 
 This is a rule to setup php on a unix system
