@@ -1,0 +1,6 @@
+---
+package:
+  php:
+    installed: true
+  php-cli:
+    installed: true

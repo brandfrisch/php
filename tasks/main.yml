@@ -17,6 +17,7 @@
     path: "{{ item }}"
     owner: www-data
     group: www-data
+    mode: 0750
     state: directory
   with_items:
     - /var/lib/php/uploads
@@ -32,6 +33,7 @@
     dest: "{{ item.dest }}"
     owner: root
     group: root
+    mode: 0644
   with_items:
     - "{{ php_config_files }}"
   tags:
